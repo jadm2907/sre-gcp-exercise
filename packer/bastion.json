@@ -1,0 +1,29 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "rugged-silo-463917-i2",
+      "source_image_family": "debian-12",
+      "zone": "us-central1-a",
+      "image_name": "bastion-{{timestamp}}",
+      "image_family": "bastion",
+      "ssh_username": "debian",
+      "instance_name": "packer-builder-{{timestamp}}",
+      "metadata": {
+        "enable-oslogin": "FALSE"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "../ansible/playbook.yml",
+      "extra_arguments": [
+        "-vvv",
+        "-e", "ansible_remote_tmp=/tmp/ansible-debian",
+        "-e", "ansible_python_interpreter=/usr/bin/python3"
+      ],
+      "use_proxy": false
+    }
+  ]
+}

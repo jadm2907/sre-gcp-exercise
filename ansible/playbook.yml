@@ -1,0 +1,68 @@
+- hosts: all
+  become: true
+  gather_facts: false  # Desactiva temporalmente facts para debug
+
+  pre_tasks:
+    - name: Configurar entorno temporal
+      file:
+        path: "/tmp/ansible-debian"
+        state: directory
+        mode: '1777'
+        owner: debian
+        group: debian
+
+    - name: Actualizar índices de paquetes
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+  tasks:
+    - name: Instalar dependencias básicas
+      apt:
+        name: ["curl", "unzip", "postgresql-client", "python3-apt", "gnupg"]
+        state: present
+
+    - name: Configurar repositorio Google Cloud SDK
+      block:
+        - name: Añadir clave GPG
+          apt_key:
+            url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+            state: present
+
+        - name: Añadir repo
+          apt_repository:
+            repo: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+            state: present
+            filename: google-cloud-sdk
+
+      rescue:
+        - debug:
+            msg: "Error configurando repo Google Cloud SDK"
+
+    - name: Instalar Cloud SDK
+      apt:
+        name: google-cloud-sdk
+        state: present
+
+    - name: Configurar repositorio Kubernetes
+      block:
+        - name: Añadir clave GPG
+          apt_key:
+            url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+            state: present
+
+        - name: Añadir repo
+          apt_repository:
+            repo: "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+            state: present
+            filename: kubernetes
+
+      rescue:
+        - debug:
+            msg: "Error configurando repo Kubernetes"
+
+    - name: Instalar kubectl
+      apt:
+        name: kubectl
+        state: present
+        allow_unauthenticated: no

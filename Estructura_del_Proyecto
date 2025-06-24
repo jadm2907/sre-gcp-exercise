@@ -1,0 +1,24 @@
+sre-gcp-exercise/
+├── packer/
+│   └── bastion.json
+├── ansible/
+│   ├── playbook.yml
+│   └── inventory.yml
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── modules/
+│       ├── load_balancer/
+│       ├── cloud_dns/
+│       ├── bastion/
+│       ├── gke/
+│       ├── container_registry/
+│       └── cloud_sql/
+├── app/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── Dockerfile
+├── README.md
+└── docs/
+    └── configuracion.md
