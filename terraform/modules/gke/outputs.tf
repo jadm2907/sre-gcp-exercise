@@ -1,9 +1,9 @@
 output "cluster_name" {
+  description = "Nombre del cluster GKE"
   value       = google_container_cluster.primary.name
-  description = "Nombre del clúster GKE"
 }
 
-output "endpoint" {
-  value       = google_container_cluster.primary.endpoint
-  description = "Endpoint del clúster GKE"
+output "instance_group_url" {
+  description = "URL del grupo de instancias"
+  value       = google_container_node_pool.primary.instance_group_urls[0]
 }

@@ -1,12 +1,15 @@
 resource "google_compute_instance" "bastion" {
-  name         = "bastion"
-  machine_type = "e2-micro"
+  name         = "bastion-host-${formatdate("YYYYMMDD", timestamp())}"
+  machine_type = "e2-medium"
   zone         = var.zone
   project      = var.project_id
 
   boot_disk {
     initialize_params {
-      image = "projects/${var.project_id}/global/images/family/bastion"
+      # Usamos la imagen específica que creó Packer
+      image = "projects/${var.project_id}/global/images/bastion-1750794437"
+      # Alternativa usando la familia (si prefieres siempre la última imagen)
+      # image = "projects/${var.project_id}/global/images/family/bastion"
     }
   }
 
@@ -18,7 +21,8 @@ resource "google_compute_instance" "bastion" {
   }
 
   metadata = {
-    enable-oslogin = "TRUE"
+    enable-oslogin = "FALSE"
+    ssh-keys       = "debian:${file("~/.ssh/id_rsa.pub")}" # Asegúrate de tener esta clave
   }
 
   service_account {
@@ -27,18 +31,11 @@ resource "google_compute_instance" "bastion" {
   }
 
   tags = ["bastion"]
-}
 
-resource "google_compute_firewall" "bastion_ssh" {
-  name    = "allow-bastion-ssh"
-  network = "default"
-  project = var.project_id
-
-  allow {
-    protocol = "tcp"
-    ports    = ["22"]
+  lifecycle {
+    ignore_changes = [
+      boot_disk[0].initialize_params[0].image,
+      metadata["ssh-keys"]
+    ]
   }
-
-  source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["bastion"]
 }
