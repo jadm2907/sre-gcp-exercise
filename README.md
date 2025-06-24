@@ -15,6 +15,6 @@ Este repositorio contiene scripts de automatización para provisionar infraestru
 Ver [docs/configuracion.md](docs/configuracion.md) para instrucciones detalladas.
 
 ## Uso
-1. Clonar repositorio: `git clone <url-repositorio>`
+1. Clonar repositorio: `git clone https://github.com/jadm2907/sre-gcp-exercise.git`
 2. Configurar credenciales de GCP.
 3. Ejecutar Packer, Ansible, Terraform y desplegar la aplicación según la guía de configuración.
