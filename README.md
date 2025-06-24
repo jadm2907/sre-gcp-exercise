@@ -188,7 +188,7 @@ docker push gcr.io/<TU_PROJECT_ID>/sre-app:latest
 1. Configura credenciales:
 
    ```bash
-   gcloud container clusters get-credentials sre-gke-cluster --zone us-central1-a
+   gcloud container clusters get-credentials my-gke-cluster --zone us-central1-a
    ```
 
 2. Aplica manifiestos:
