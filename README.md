@@ -233,4 +233,81 @@ Consulta `docs/configuracion.md` para instrucciones y ejemplos adicionales.
 
 ---
 
+## 🔑 Depuración y Acceso SSH al Bastion
+
+### 📌 Cómo obtener el nombre exacto de la instancia Bastion
+
+1. **Usa la salida de Terraform:**
+
+   ```bash
+   terraform output instance_name
+   ```
+
+   Esto devuelve el nombre, por ejemplo: `bastion-host-20250624`.
+
+2. **Accede vía SSH con el nombre:**
+
+   ```bash
+   gcloud compute ssh bastion-host-20250624 --zone us-central1-a
+   ```
+
+3. **Listar instancias como alternativa:**
+
+   ```bash
+   gcloud compute instances list --filter="zone:us-central1-a"
+   ```
+
+4. **Automatizar el comando:**
+
+   ```bash
+   gcloud compute ssh $(terraform output -raw instance_name) --zone us-central1-a
+   ```
+
+### ⚙️ Verifica tu clave SSH
+
+* Asegúrate de tener `~/.ssh/id_rsa` y `~/.ssh/id_rsa.pub`.
+* Si no existen, genera una:
+
+  ```bash
+  ssh-keygen -t rsa -b 4096 -C "tu_email@example.com"
+  ```
+* Verifica claves cargadas:
+
+  ```bash
+  ssh-add -l
+  ```
+
+### ✅ Consideraciones
+
+* `enable-oslogin` está en `FALSE`, por lo que se usan claves SSH.
+* Para usar nombre fijo, ajusta `main.tf`:
+
+  ```hcl
+  name = "bastion-host"
+  ```
+
+  Y re-aplica:
+
+  ```bash
+  terraform apply -var-file="terraform.tfvars"
+  ```
+
+  Luego usa:
+
+  ```bash
+  gcloud compute ssh bastion-host --zone us-central1-a
+  ```
+
+### 🕵️ Depura si falla
+
+* Si falla la conexión:
+
+  ```bash
+  gcloud compute ssh bastion-host-20250624 --zone us-central1-a --ssh-flag="-v"
+  ```
+* Si no existe la instancia, asegúrate de aplicar Terraform de nuevo:
+
+  ```bash
+  terraform apply -var-file="terraform.tfvars"
+  ```
 ✅ **Fin del README**.
