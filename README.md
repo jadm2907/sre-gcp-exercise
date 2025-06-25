@@ -24,7 +24,7 @@ Se busca:
 | **Cloud DNS**              | Gestión de nombres de dominio                  |
 | **Host Bastion**           | Nodo de acceso seguro para administración      |
 | **Clúster GKE**            | Orquestación de contenedores                   |
-| **Container Registry**     | Almacenamiento de imágenes Docker              |
+| **Artifact Registry**     | Almacenamiento de imágenes Docker              |
 | **Cloud SQL (PostgreSQL)** | Base de datos relacional gestionada            |
 | **Aplicación Flask**       | API de ejemplo que consume datos de PostgreSQL |
 
