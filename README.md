@@ -312,5 +312,6 @@ Consulta `docs/configuracion.md` para instrucciones y ejemplos adicionales.
   ```
 ## 📄 Documentación
 - [Documento de Visión General del Proyecto](docs/Vision_General_Proyecto.pdf): Introducción al proyecto SRE-GCP, sus objetivos y arquitectura.
+- [Guía de Instalación y Configuración](docs/Guia_Instalacion_Configuracion.pdf): Instrucciones para configurar el entorno local y GCP.
 
 ✅ **Fin del README**.
