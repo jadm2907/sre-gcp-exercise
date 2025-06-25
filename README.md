@@ -318,5 +318,7 @@ Consulta `docs/configuracion.md` para instrucciones y ejemplos adicionales.
 - [Guía de Despliegue en GKE](docs/Guia_Despliegue_GKE.pdf): Instrucciones para desplegar la aplicación en GKE.
 - [Manual de Acceso y Depuración](docs/Manual_Acceso_Depuracion.pdf): Guía para acceso seguro y depuración.
 - [Guía de Eliminación y Limpieza](docs/Guia_Eliminacion_Limpieza.pdf): Instrucciones para eliminar recursos y limpiar el entorno.
+- [Mejores Prácticas y Optimización](docs/Mejores_Practicas_Optimizacion.pdf): Recomendaciones para optimización y confiabilidad.
+- [Glosario y Referencias](docs/Glosario_Referencias.pdf): Definiciones y enlaces a documentación oficial.
 
 ✅ **Fin del README**.
