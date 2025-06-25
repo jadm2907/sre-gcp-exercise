@@ -88,32 +88,63 @@ Se busca:
 
 ```plaintext
 sre-gcp-exercise/
-├── .gitignore
-├── README.md
-├── create_project_structure.sh
-├── packer/
-│   └── bastion.json
-├── ansible/
-│   ├── playbook.yml
-│   └── inventory.yml
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   └── modules/
-│       ├── load_balancer/
-│       ├── cloud_dns/
-│       ├── bastion/
-│       ├── gke/
-│       ├── artifact_registry/
-│       └── cloud_sql/
-├── app/
-│   ├── main.py
-│   ├── requirements.txt
+├── ansible
+│   ├── inventory.yml
+│   └── playbook.yml
+├── app
+│   ├── deployment.yaml
 │   ├── Dockerfile
-│   └── deployment.yaml
-├── docs/
+│   ├── main.py
+│   └── requirements.txt
+├── create_project_structure.sh
+├── docs
+│   ├── 01_Documento de Visión General del Proyecto.pdf
+│   ├── 02_Guía de Instalación y Configuración.pdf
+│   ├── 03_Manual de Provisionamiento con Terraform (SRE).pdf
+│   ├── 04_Guía de Construcción con Packer y Ansible.pdf
+│   ├── 05_Guía de Despliegue en GKE.pdf
+│   ├── 06_Manual de Acceso y Depuración.pdf
+│   ├── 07_Guía de Eliminación y Limpieza.pdf
+│   ├── 08_Mejores Prácticas y Optimización.pdf
+│   ├── 09_Glosario y Referencias.pdf
 │   └── configuracion.md
+├── Documentacion_Ejercicio_SRE_GCP.md
+├── Estructura_del_Proyecto
+├── packer
+│   └── bastion.json
+├── README.md
+└── terraform
+    ├── main.tf
+    ├── modules
+    │   ├── artifact_registry
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   ├── bastion
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   ├── cloud_dns
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   ├── cloud_sql
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   ├── gke
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   └── load_balancer
+    │       ├── main.tf
+    │       ├── outputs.tf
+    │       └── variables.tf
+    ├── outputs.tf
+    ├── terraform.tfstate
+    ├── terraform.tfstate.backup
+    ├── terraform.tfvars
+    └── variables.tf
 ```
 
 ---
