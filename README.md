@@ -317,5 +317,6 @@ Consulta `docs/configuracion.md` para instrucciones y ejemplos adicionales.
 - [Guía de Construcción con Packer y Ansible](docs/Guia_Construccion_Packer_Ansible.pdf): Instrucciones para crear imágenes y configurar con Ansible.
 - [Guía de Despliegue en GKE](docs/Guia_Despliegue_GKE.pdf): Instrucciones para desplegar la aplicación en GKE.
 - [Manual de Acceso y Depuración](docs/Manual_Acceso_Depuracion.pdf): Guía para acceso seguro y depuración.
+- [Guía de Eliminación y Limpieza](docs/Guia_Eliminacion_Limpieza.pdf): Instrucciones para eliminar recursos y limpiar el entorno.
 
 ✅ **Fin del README**.
