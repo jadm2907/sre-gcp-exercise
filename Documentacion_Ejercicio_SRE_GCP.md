@@ -59,7 +59,7 @@ Evalúa la capacidad de diseñar, automatizar y desplegar infraestructura **efic
 | **Cloud DNS**                     | Gestiona dominio       | Acceso amigable            |
 | **Bastion**                       | Punto de acceso seguro | Menor exposición pública   |
 | **GKE**                           | Orquesta contenedores  | Despliegue escalable       |
-| **Container Registry**            | Guarda imágenes Docker | Seguridad y centralización |
+| **Artifact Registry**            | Guarda imágenes Docker | Seguridad y centralización |
 | **Cloud SQL (PostgreSQL)**        | Base de datos          | Gestión y escalabilidad    |
 | **Aplicación de ejemplo (Flask)** | Valida integración     | Flujo E2E funcional        |
 

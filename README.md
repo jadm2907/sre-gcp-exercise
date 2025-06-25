@@ -310,4 +310,7 @@ Consulta `docs/configuracion.md` para instrucciones y ejemplos adicionales.
   ```bash
   terraform apply -var-file="terraform.tfvars"
   ```
+## 📄 Documentación
+- [Documento de Visión General del Proyecto](docs/Vision_General_Proyecto.pdf): Introducción al proyecto SRE-GCP, sus objetivos y arquitectura.
+
 ✅ **Fin del README**.

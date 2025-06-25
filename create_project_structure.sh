@@ -8,7 +8,7 @@ mkdir -p ansible/
 touch ansible/playbook.yml
 touch ansible/inventory.yml
 
-mkdir -p terraform/modules/{load_balancer,cloud_dns,bastion,gke,container_registry,cloud_sql}
+mkdir -p terraform/modules/{load_balancer,cloud_dns,bastion,gke,artifact_registry,cloud_sql}
 touch terraform/main.tf
 touch terraform/variables.tf
 touch terraform/outputs.tf
