@@ -105,7 +105,7 @@ sre-gcp-exercise/
 │       ├── cloud_dns/
 │       ├── bastion/
 │       ├── gke/
-│       ├── container_registry/
+│       ├── artifact_registry/
 │       └── cloud_sql/
 ├── app/
 │   ├── main.py
